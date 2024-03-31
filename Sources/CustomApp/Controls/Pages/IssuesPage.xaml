@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CustomApp.Models.Pages"
+             x:Class="CustomApp.Controls.Pages.IssuesPage"
+             Title="Issues Page">
+
+    <StackLayout Spacing="20" Margin="20">
+        <Button Text="Reload issues"
+                Clicked="OnReloadClicked"
+                IsEnabled="{Binding Path=IsReloadEnabled}"/>
+        <ActivityIndicator IsRunning="True"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand"
+                           IsVisible="{Binding Path=IsLoadVisible}"/>
+        <Label TextColor="Red"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               Text="{Binding Path=ErrorMessage}"
+               IsVisible="{Binding Path=IsErrorVisible}"/>
+        <ListView ItemSelected="OnIssueClicked"
+                  ItemsSource="{Binding Path=ItemList}"
+                  IsVisible="{Binding Path=IsListVisible}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20" Spacing="20"
+                                     Orientation="Horizontal">
+                            <Label Text="{Binding Path=Label}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Create issue"
+                Clicked="OnCreateClicked"
+                IsEnabled="{Binding Path=IsCreateEnabled}"/>
+    </StackLayout>
+    
+</ContentPage>

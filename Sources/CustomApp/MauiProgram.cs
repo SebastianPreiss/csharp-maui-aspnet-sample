@@ -1,5 +1,4 @@
-﻿using CustomApp.Models.Pages;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace CustomApp
 {
@@ -20,12 +19,6 @@ namespace CustomApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 }
             );
-
-            // Configure services
-            builder.Services.AddSingleton<UsersPageModel>();
-            builder.Services.AddSingleton<UserPageModel>();
-            builder.Services.AddSingleton<IssuesPageModel>();
-            builder.Services.AddSingleton<IssuePageModel>();
 
 #if DEBUG
             // Configure debugger

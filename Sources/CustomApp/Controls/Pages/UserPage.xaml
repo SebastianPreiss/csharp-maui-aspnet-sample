@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CustomApp.Models.Pages"
+             x:Class="CustomApp.Controls.Pages.UserPage"
+             Title="User Page">
+
+    <StackLayout Spacing="20" Margin="20">
+        <TableView Intent="Form"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell Label="User ID"
+                               Placeholder="The user ID will be generated automatically"
+                               Text="{Binding Path=Item.UserId}"
+                               IsEnabled="False"/>
+                    <EntryCell Label="Created At"
+                               Placeholder="Not created yet"
+                               Text="{Binding Path=Item.CreatedAt}"
+                               IsEnabled="False"/>
+                    <EntryCell Label="Updated At"
+                               Placeholder="Not updated yet"
+                               Text="{Binding Path=Item.UpdatedAt}"
+                               IsEnabled="False"/>
+                    <EntryCell Label="Deleted At"
+                               Placeholder="Not deleted yet"
+                               Text="{Binding Path=Item.DeletedAt}"
+                               IsEnabled="False"/>
+                    <EntryCell Label="First name"
+                               Placeholder="Enter first name"
+                               Text="{Binding Path=Item.FirstName}"
+                               IsEnabled="{Binding Path=IsSaveEnabled}"/>
+                    <EntryCell Label="Last name"
+                               Placeholder="Enter last name"
+                               Text="{Binding Path=Item.LastName}"
+                               IsEnabled="{Binding Path=IsSaveEnabled}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <ActivityIndicator IsRunning="True"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           IsVisible="{Binding Path=IsLoadVisible}"/>
+        <Label TextColor="Red"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Text="{Binding Path=ErrorMessage}"
+               IsVisible="{Binding Path=IsErrorVisible}"/>
+        <Button Text="Save user"
+                Clicked="OnSaveClicked"
+                IsEnabled="{Binding Path=IsSaveEnabled}"/>
+    </StackLayout>
+    
+</ContentPage>
