@@ -6,7 +6,7 @@
     xmlns:pages="clr-namespace:CustomApp.Pages"
     xmlns:views="clr-namespace:CustomApp.Views"
     FlyoutBackgroundColor="LightBlue"
-    FlyoutBehavior="Locked"
+    FlyoutBehavior="Flyout"
     Title="CustomApp">
 
     <Shell.FlyoutHeader>
